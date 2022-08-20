@@ -1,0 +1,13 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: fit-content;
+}
+
+.value {
+  margin: auto;
+  min-width: 64px;
+  text-align: center;
+}

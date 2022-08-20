@@ -1,0 +1,26 @@
+.card {
+  height: auto;
+  width: fit-content;
+  background-color: rgba(127, 255, 212, 0.354);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border: solid 0.2px black;
+  border-radius: 5px;
+  box-shadow: 1.2px 1.2px 1.2px rgba(0, 0, 0, 0.162);
+}
+
+.card:hover {
+  box-shadow: 1.2px 1.2px 1.2px rgba(0, 0, 0, 0.305);
+}
+
+.title {
+  font-size: small;
+  position: absolute;
+  top: -6px;
+  background-color: white;
+  padding: 0px 5px;
+  border: solid 0.2px black;
+  border-radius: 5px;
+}

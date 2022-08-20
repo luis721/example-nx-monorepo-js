@@ -1,0 +1,16 @@
+.container {
+  background-color: rgb(13, 13, 13);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 64px;
+  min-height: 64px;
+  border: 0;
+  border-radius: 3px;
+  box-shadow: 1.2px 1.2px 1.2px rgba(0, 0, 0, 0.162);
+}
+
+.container:hover {
+  box-shadow: 1.2px 1.2px 1.2px rgba(0, 0, 0, 0.305);
+}
