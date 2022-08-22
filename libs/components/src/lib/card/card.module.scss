@@ -16,11 +16,16 @@
 }
 
 .title {
-  font-size: small;
+  font-size: medium;
   position: absolute;
-  top: -6px;
+  top: -8px;
   background-color: white;
   padding: 0px 5px;
   border: solid 0.2px black;
   border-radius: 5px;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
 }

@@ -7,9 +7,11 @@ export const Card = (props) => {
 Card.Title = (props) => {
   return <div className={styles["title"]}>{props.children}</div>;
 };
+Card.Title.displayName = "Card.Title";
 
 Card.Body = (props) => {
   return <div className={styles["body"]}>{props.children}</div>;
 };
+Card.Body.displayName = "Card.Body";
 
 export default Card;

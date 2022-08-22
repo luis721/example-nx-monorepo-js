@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
-  "npmScope": "prueba",
+  "npmScope": "example-nx-monorepo-js",
   "affected": {
     "defaultBase": "main"
   },

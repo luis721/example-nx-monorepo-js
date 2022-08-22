@@ -1,4 +1,4 @@
-import Button from "../button/button";
+import { Button } from "@example-nx-monorepo-js/components";
 import styles from "./counter.module.scss";
 
 export const Counter = ({ value, onLess, onPlus, ...props }) => {

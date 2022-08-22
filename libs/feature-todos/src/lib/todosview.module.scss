@@ -1,0 +1,36 @@
+.container {
+  margin-top: 10px;
+  height: auto;
+}
+
+.container > div:first-child {
+  width: 340px;
+}
+
+.center {
+  display: flex;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form {
+  > * {
+    margin-bottom: 20px;
+  }
+}
+
+.btn-add {
+  margin-top: 10px;
+}
+.btn-add > :first-child {
+  width: 100%;
+}
+
+.todo-item {
+  background-color: azure;
+}
+
+.todo-item:hover {
+  opacity: 75%;
+}

@@ -3,6 +3,8 @@
   "version": 2,
   "projects": {
     "components": "libs/components",
+    "feature-counter": "libs/feature-counter",
+    "feature-todos": "libs/feature-todos",
     "web": "apps/web"
   }
 }

@@ -15,7 +15,13 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@prueba/components": ["libs/components/src/index.js"]
+      "@example-nx-monorepo-js/components": ["libs/components/src/index.js"],
+      "@example-nx-monorepo-js/feature-counter": [
+        "libs/feature-counter/src/index.js"
+      ],
+      "@example-nx-monorepo-js/feature-todos": [
+        "libs/feature-todos/src/index.js"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

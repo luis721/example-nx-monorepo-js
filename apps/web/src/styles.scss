@@ -1,9 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
 * {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: larger;
+  font-size: x-large;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+html {
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+a,
+a:hover,
+a:active,
+a:visited {
+  text-decoration: none;
+  color: initial;
 }
 
 #root {
   padding: 5px;
+}
+
+label {
+  font-size: large;
 }

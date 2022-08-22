@@ -1,1 +1,6 @@
 /* Your styles goes here. */
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
