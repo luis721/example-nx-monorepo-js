@@ -1,4 +1,5 @@
 @use "../colors.module.scss" as colors;
+@import "../variables.module.scss";
 
 .container {
   display: block;
@@ -21,6 +22,7 @@
   transform: translate(-50%, -50%);
   padding: 20px;
   background: white;
+  box-shadow: $normalshadow;
 }
 
 .head {

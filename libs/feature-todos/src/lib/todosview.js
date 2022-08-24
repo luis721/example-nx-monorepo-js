@@ -16,11 +16,31 @@ function TodosView({ items }) {
   };
 
   const onSaveTodo = (todo) => {
-    setTodos((current) =>
-      update(current, { $push: [{ ...todo, id: current.length }] })
-    );
+    setTodos((current) => {
+      let index = current.findIndex((e) => e.id === todo.id);
+      if (todo.id) {
+        return update(current, { [index]: { $set: todo } });
+      }
+      return update(current, {
+        $push: [{ ...todo, id: (current[current.length - 1]?.id ?? 0) + 1 }],
+      });
+    });
     setCurrentTodo(null);
     setIsOpen(false);
+  };
+
+  const onCreate = () => {
+    setCurrentTodo();
+    toggleIsOpen();
+  };
+
+  const onEditTodo = (index) => () => {
+    setCurrentTodo(todos[index]);
+    toggleIsOpen();
+  };
+
+  const onDeleteTodo = (index) => () => {
+    setTodos((current) => update(current, { $splice: [[index, 1]] }));
   };
 
   return (
@@ -29,11 +49,16 @@ function TodosView({ items }) {
         <Card>
           <Card.Title>Todos</Card.Title>
           <Card.Body>
-            <TodoList todos={todos} setCurrentTodo={setCurrentTodo} />
+            <TodoList
+              todos={todos}
+              setCurrentTodo={setCurrentTodo}
+              onEdit={onEditTodo}
+              onDelete={onDeleteTodo}
+            />
           </Card.Body>
         </Card>
         <div className={styles["btn-add"]}>
-          <Button onClick={toggleIsOpen}>Add Item</Button>
+          <Button onClick={onCreate}>Add Item</Button>
         </div>
       </div>
       <TodosModal
@@ -48,16 +73,22 @@ function TodosView({ items }) {
 
 export default TodosView;
 
-const TodoList = ({ todos }) => {
+const TodoList = ({ todos, onEdit, onDelete }) => {
   if (todos.length === 0) {
     return <div className={styles["no-items"]}>There aren't any items.</div>;
   }
-  return map(todos, (todo) => (
-    <TodoItem
-      key={todo.id}
-      id={todo.id}
-      name={todo.name}
-      status={todo.status}
-    />
-  ));
+  return (
+    <div className={styles["list"]}>
+      {map(todos, (todo, index) => (
+        <TodoItem
+          key={todo.id}
+          id={todo.id}
+          name={todo.name}
+          status={todo.status}
+          onEdit={onEdit(index)}
+          onDelete={onDelete(index)}
+        />
+      ))}
+    </div>
+  );
 };

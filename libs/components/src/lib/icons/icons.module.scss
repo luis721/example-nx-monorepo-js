@@ -1,0 +1,32 @@
+@import "../variables.module.scss";
+
+$iconSize: 32px;
+
+.icon {
+  width: $iconSize;
+  height: $iconSize;
+  font-size: $iconSize;
+  color: gray;
+  cursor: pointer;
+  box-shadow: $normalshadow;
+}
+
+.icon:hover {
+  box-shadow: $hovershadow;
+}
+
+.edit {
+  padding: 0px 3.43px;
+}
+
+.edit::before {
+  content: "\270E";
+}
+
+.close {
+  padding: 0px 5.8px;
+}
+
+.close::before {
+  content: "\2715";
+}

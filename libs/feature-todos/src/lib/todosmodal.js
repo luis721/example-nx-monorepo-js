@@ -18,15 +18,19 @@ const TodosModal = ({ todo, onSave, isOpen, onClose }) => {
 export default TodosModal;
 
 const TodosForm = ({ todo, onCancel, onSave }) => {
-  const initialValues = () => {
+  const initialValues = (values) => {
     return {
-      id: todo?.id,
-      name: todo?.name ?? "",
-      description: todo?.description ?? "",
+      id: values?.id,
+      name: values?.name ?? "",
+      description: values?.description ?? "",
     };
   };
 
-  const [values, setValues] = React.useState(initialValues);
+  const [values, setValues] = React.useState(() => initialValues(todo));
+
+  React.useEffect(() => {
+    setValues(initialValues(todo));
+  }, [todo]);
 
   const handleField = (field) => (e) => {
     setValues((current) =>
