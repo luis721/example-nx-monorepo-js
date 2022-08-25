@@ -22,7 +22,13 @@ function TodosView({ items }) {
         return update(current, { [index]: { $set: todo } });
       }
       return update(current, {
-        $push: [{ ...todo, id: (current[current.length - 1]?.id ?? 0) + 1 }],
+        $push: [
+          {
+            ...todo,
+            id: (current[current.length - 1]?.id ?? 0) + 1,
+            isComplete: false,
+          },
+        ],
       });
     });
     setCurrentTodo(null);
@@ -39,6 +45,12 @@ function TodosView({ items }) {
     toggleIsOpen();
   };
 
+  const onToggleTodo = (index) => () => {
+    setTodos((current) =>
+      update(current, { [index]: { isComplete: { $apply: (c) => !c } } })
+    );
+  };
+
   const onDeleteTodo = (index) => () => {
     setTodos((current) => update(current, { $splice: [[index, 1]] }));
   };
@@ -53,6 +65,7 @@ function TodosView({ items }) {
               todos={todos}
               setCurrentTodo={setCurrentTodo}
               onEdit={onEditTodo}
+              onToggle={onToggleTodo}
               onDelete={onDeleteTodo}
             />
           </Card.Body>
@@ -73,7 +86,7 @@ function TodosView({ items }) {
 
 export default TodosView;
 
-const TodoList = ({ todos, onEdit, onDelete }) => {
+const TodoList = ({ todos, onEdit, onToggle, onDelete }) => {
   if (todos.length === 0) {
     return <div className={styles["no-items"]}>There aren't any items.</div>;
   }
@@ -84,7 +97,8 @@ const TodoList = ({ todos, onEdit, onDelete }) => {
           key={todo.id}
           id={todo.id}
           name={todo.name}
-          status={todo.status}
+          isComplete={todo.isComplete}
+          onToggle={onToggle(index)}
           onEdit={onEdit(index)}
           onDelete={onDelete(index)}
         />

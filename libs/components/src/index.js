@@ -1,3 +1,4 @@
+export * from "./lib/toggle/toggle";
 export * from "./lib/icons/icon";
 export * from "./lib/button/button";
 export * from "./lib/card/card";
